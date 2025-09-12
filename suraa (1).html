@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>R.Surendar</title>
+  <style>
+    :root {
+      --bg-color: #f5f5f5;
+      --text-color: #333;
+      --accent-color: #ff6f61;
+      --primary-color: #6a11cb;
+      --secondary-color: #2575fc;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #f0f0f0;
+      --accent-color: #00d4ff;
+      --primary-color: #8e2de2;
+      --secondary-color: #4a00e0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.5s ease, color 0.5s ease;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: white;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .profile-pic {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--accent-color);
+    }
+
+    #toggle-theme {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.3rem 0.6rem;
+      border-radius: 5px;
+    }
+
+    main {
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(40px);
+      animation: reveal 1s forwards;
+    }
+
+    section:nth-child(odd) {
+      animation-delay: 0.3s;
+    }
+
+    section:nth-child(even) {
+      animation-delay: 0.6s;
+    }
+
+    h2 {
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .project {
+      background: linear-gradient(135deg, #ffffff, #f0f0f0);
+      border-left: 5px solid var(--accent-color);
+      padding: 1rem;
+      margin-top: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .project img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 2px solid var(--primary-color);
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    form button {
+      background: var(--primary-color);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    form button:hover {
+      background: var(--secondary-color);
+    }
+
+    footer {
+      background: #eaeaea;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    body.dark footer {
+      background: #1e1e1e;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes reveal {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      #toggle-theme {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+
+      .profile-pic {
+        width: 80px;
+        height: 80px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://tse3.mm.bing.net/th/id/OIP.EI1lOKlcWfmcQ32QlQJwOwHaNK?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3" class="profile-pic">
+    <h1>R.Surendar</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button id="toggle-theme">🌙</button>
+  </header>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>I’m a passionate and creative web developer with a strong focus on building responsive, visually appealing, and user-friendly websites. I love combining design with clean, efficient code to bring ideas to life on the web. With a solid foundation in HTML, CSS, and JavaScript, I enjoy experimenting with animations, interactivity, and modern front-end tools to create engaging digital experiences. I’m always eager to learn, take on new challenges, and continuously grow as a developer. Beyond coding, I’m inspired by design, technology, and the endless possibilities of the digital world.</p>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="project">
+        <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/331722727/original/5cb15745ced49f40033db3599feaaebeb96da44b/create-responsive-html-landing-pages.jpg">
+        <h3>✨ Interactive Landing Page</h3>
+        <p>A sleek animated landing page using HTML, CSS, and GSAP animations. Fully responsive and eye-catching.</p>
+      </div>
+      <div class="project">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.84qQoGK1fo4m-a1t71AiSgHaEK?cb=ucfimg2ucfimg=1&rs=1&pid=ImgDetMain&o=7&rm=3">
+        <h3>🎨 Portfolio Template</h3>
+        <p>A colorful single-page portfolio template with theme toggling and scroll animations.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Surendar — Built with ❤ and CSS</p>
+  </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-theme');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggleBtn.textContent = document.body.classList.contains('dark') ? '☀' : '🌙';
+    });
+  </script>
+</body>
+</html>
